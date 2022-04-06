@@ -40,4 +40,4 @@ workflows:
             branches:
               only:
                 - main
-          label: version-1.0
+          label: Sample Application
