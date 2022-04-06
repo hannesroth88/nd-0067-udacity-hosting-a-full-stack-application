@@ -3,7 +3,7 @@ branch-defaults:
     environment: null
     group_suffix: null
 global:
-  application_name: udacity-fullstack-cicd
+  application_name: udacity-fullstack-frontend
   branch: null
   default_ec2_keyname: null
   default_platform: Node.js

@@ -28,17 +28,24 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+  eb-backend:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - eb/setup
+      - run:
+          name: deploy EB
+          command: |
+            cd server
+            eb create udacity-fullstack-backend-env
+            eb deploy udacity-fullstack-backend-env
+            eb status
 workflows:
   elastic-beanstalk-workflow:
     jobs:
       - build
-      - eb/deploy:
+      - eb-backend:
           context: udacity-fullstack-aws
-          environment-name: udacity-fullstack-cicd-env
-          filters:
-            branches:
-              only:
-                - main
-          label: 'prod'
           requires:
             - build
