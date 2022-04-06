@@ -39,6 +39,6 @@ workflows:
             branches:
               only:
                 - main
-          label: 'prod-0.1'
+          label: 'prod'
           requires:
             - build
