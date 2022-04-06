@@ -40,4 +40,6 @@ workflows:
             branches:
               only:
                 - main
-          label: Sample Application
+          label: 'Sample Application'
+          requires:
+            - build
