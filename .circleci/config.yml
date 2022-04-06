@@ -29,23 +29,15 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
-  eb/deploy:
-    context: udacity-fullstack-aws
-    environment-name: udacity-fullstack-cicd-env
-    filters:
-      branches:
-        only:
-          - main
-    label: version-1.0
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
-      - node/install:
-          install-yarn: true
-          node-version: '16.13'
 workflows:
-  version: 2
-  pipeline: # name of workflow
-    jobs: # list the jobs to to run.
+  elastic-beanstalk-workflow:
+    jobs:
       - build
-      - eb/deploy
+      - eb/deploy:
+          context: udacity-fullstack-aws
+          environment-name: udacity-fullstack-cicd-env
+          filters:
+            branches:
+              only:
+                - main
+          label: version-1.0
