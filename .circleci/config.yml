@@ -3,7 +3,35 @@ orbs:
   node: circleci/node@4.1.0
   eb: circleci/aws-elastic-beanstalk@2.0.1
 jobs:
-  build:
+  backend:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '16.13'
+      - run: node --version
+      - run:
+          name: Back-End Install
+          command: |
+            npm run backend:install
+      - run:
+          name: Back-End Build
+          command: |
+            npm run backend:build
+      - eb/setup
+      - run:
+          name: Back-End deploy AWS EB
+          command: |
+            cd server
+            ls
+            eb create udacity-fullstack-backend-env || true
+            eb use udacity-fullstack-backend-env
+            eb setenv NODE_ENV=PROD
+            eb deploy
+            eb status
+  frontend:
     docker:
       - image: 'cimg/base:stable'
     steps:
@@ -17,41 +45,12 @@ jobs:
           command: |
             npm run frontend:install
       - run:
-          name: Back-End Install
-          command: |
-            npm run backend:install
-      - run:
           name: Front-End Build
           command: |
-            npm run frontend:build
-      - run:
-          name: Back-End Build
-          command: |
-            npm run backend:build
-  eb-backend:
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
-      - checkout
+            npm run frontend:build      
       - eb/setup
       - run:
-          name: deploy EB
-          command: |
-            cd server
-            ls
-            eb create udacity-fullstack-backend-env || true
-            eb use udacity-fullstack-backend-env
-            eb setenv NODE_ENV=PROD
-            eb deploy
-            eb status
-  eb-frontend:
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
-      - checkout
-      - eb/setup
-      - run:
-          name: deploy EB
+          name: Front-End deploy AWS EB
           command: |
             cd client
             ls
@@ -59,15 +58,14 @@ jobs:
             eb use udacity-fullstack-frontend-env
             eb deploy
             eb status
+
 workflows:
   elastic-beanstalk-workflow:
     jobs:
-      - build
-      - eb-backend:
+      - backend:
           context: udacity-fullstack-aws
-          requires:
-            - build
-      - eb-frontend:
+      - frontend:
           context: udacity-fullstack-aws
-          requires:
-            - build
+          # activate if runs smoothly
+          # requires:
+          #   - backend
