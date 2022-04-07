@@ -41,11 +41,28 @@ jobs:
             eb create udacity-fullstack-backend-env
             eb deploy udacity-fullstack-backend-env
             eb status
+  eb-frontend:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - eb/setup
+      - run:
+          name: deploy EB
+          command: |
+            cd client
+            eb create udacity-fullstack-frontend-env
+            eb deploy udacity-fullstack-frontend-env
+            eb status
 workflows:
   elastic-beanstalk-workflow:
     jobs:
       - build
       - eb-backend:
+          context: udacity-fullstack-aws
+          requires:
+            - build
+      - eb-frontend:
           context: udacity-fullstack-aws
           requires:
             - build
