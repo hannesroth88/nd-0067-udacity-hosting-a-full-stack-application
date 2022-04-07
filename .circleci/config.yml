@@ -38,6 +38,7 @@ jobs:
           name: deploy EB
           command: |
             cd server
+            ls
             eb create udacity-fullstack-backend-env || true
             eb use udacity-fullstack-backend-env
             eb setenv NODE_ENV=PROD
@@ -53,6 +54,7 @@ jobs:
           name: deploy EB
           command: |
             cd client
+            ls
             eb create udacity-fullstack-frontend-env || true
             eb use udacity-fullstack-frontend-env
             eb deploy
