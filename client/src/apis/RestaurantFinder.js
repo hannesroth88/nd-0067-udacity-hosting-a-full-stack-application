@@ -5,7 +5,7 @@ const RestaurantFinder = axios.create({
   baseURL:
     process.env.NODE_ENV !== "prod"
       ? "http://localhost:4200/api/v1/restaurants"
-      : "https://udacity-fullstack-backend-env.eba-c2avdbns.us-east-1.elasticbeanstalk.com/api/v1/restaurants",
+      : "https://udacity-fullstack-backend-env.eba-up9w3ehf.us-east-1.elasticbeanstalk.com/api/v1/restaurants",
   timeout: 5000,
 });
 

@@ -118,4 +118,4 @@ app.post(`/api/v1/restaurants/:id/addReview`, async (req, res) => {
   }
 })
 
-app.listen(PORT, () => console.log(`ExpressServer on PORT:${PORT},   Using DB: ${process.env.HOST}`))
+app.listen(PORT, () => console.log(`ExpressServer on PORT:${PORT},   Using DB: ${process.env.RDS_HOSTNAME}`))
