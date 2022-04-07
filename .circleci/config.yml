@@ -39,8 +39,10 @@ jobs:
           command: |
             cd server
             eb create udacity-fullstack-backend-env || true
-            eb deploy udacity-fullstack-backend-env
-            eb status udacity-fullstack-backend-env
+            eb use udacity-fullstack-backend-env
+            eb setenv NODE_ENV=PROD
+            eb deploy
+            eb status
   eb-frontend:
     docker:
       - image: 'cimg/base:stable'
@@ -52,8 +54,9 @@ jobs:
           command: |
             cd client
             eb create udacity-fullstack-frontend-env || true
-            eb deploy udacity-fullstack-frontend-env
-            eb status udacity-fullstack-frontend-env
+            eb use udacity-fullstack-frontend-env
+            eb deploy
+            eb status
 workflows:
   elastic-beanstalk-workflow:
     jobs:

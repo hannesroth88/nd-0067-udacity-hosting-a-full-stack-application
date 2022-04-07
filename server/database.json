@@ -1,11 +1,11 @@
 {
     "dev": {
         "driver": "pg",
-        "user": {"ENV": "PG_USER"},
-        "password": {"ENV": "PG_PASSWORD"},
-        "host": {"ENV": "PG_HOST"},
-        "database": {"ENV": "PG_DATABASE"},
-        "port": {"ENV": "PG_PORT"},
+        "user": {"ENV": "RDS_USERNAME"},
+        "password": {"ENV": "RDS_PASSWORD"},
+        "host": {"ENV": "RDS_HOSTNAME"},
+        "database": {"ENV": "RDS_DB_NAME"},
+        "port": {"ENV": "RDS_PORT"},
         "schema": "public"
     }
 }
