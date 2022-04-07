@@ -38,7 +38,7 @@ jobs:
           name: deploy EB
           command: |
             cd server
-            eb create udacity-fullstack-backend-env
+            eb create udacity-fullstack-backend-env || true
             eb deploy udacity-fullstack-backend-env
             eb status
   eb-frontend:
@@ -51,7 +51,7 @@ jobs:
           name: deploy EB
           command: |
             cd client
-            eb create udacity-fullstack-frontend-env
+            eb create udacity-fullstack-frontend-env || true
             eb deploy udacity-fullstack-frontend-env
             eb status
 workflows:
