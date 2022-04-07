@@ -1,5 +1,6 @@
 ## Manually Added ##
 build
+.ebextensions
 
 # Logs
 logs

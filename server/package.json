@@ -9,7 +9,7 @@
   },
   "scripts": {
     
-    "start": "npm run prettier & tsc & node build/server.js",
+    "start": "node build/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "lint": "eslint . --ext .js",
