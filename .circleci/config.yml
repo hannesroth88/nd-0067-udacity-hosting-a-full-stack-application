@@ -58,7 +58,6 @@ jobs:
             eb use udacity-fullstack-frontend-env
             eb deploy
             eb status
-
 workflows:
   elastic-beanstalk-workflow:
     jobs:
