@@ -56,7 +56,6 @@ jobs:
             ls
             eb create udacity-fullstack-frontend-env || true
             eb use udacity-fullstack-frontend-env
-            eb setenv NODE_ENV=PROD
             eb deploy
             eb status
 workflows:
