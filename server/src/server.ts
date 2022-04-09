@@ -117,5 +117,11 @@ app.post(`/api/v1/restaurants/:id/addReview`, async (req, res) => {
     console.log(error)
   }
 })
-
-app.listen(PORT, () => console.log(`ExpressServer on PORT:${PORT},   Using DB: ${process.env.RDS_HOSTNAME}`))
+const dbConfig= {
+"RDS_USERNAME":process.env.RDS_USERNAME,
+"RDS_PASSWORD":process.env.RDS_PASSWORD,
+"RDS_HOSTNAME":process.env.RDS_HOSTNAME,
+"RDS_PORT":process.env.RDS_PORT,
+"RDS_DB_NAME":process.env.RDS_DB_NAME
+}
+app.listen(PORT, () => console.log(`ExpressServer on PORT:${PORT},   Using DB: ${JSON.stringify(dbConfig)}`))
