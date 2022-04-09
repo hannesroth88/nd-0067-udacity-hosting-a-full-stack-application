@@ -62,7 +62,7 @@ jobs:
       - run:
           name: Front-End deploy AWS EB
           command: |
-            cd server
+            cd client
             ls
             eb create udacity-fullstack-frontend-env || true
             eb use udacity-fullstack-frontend-env
