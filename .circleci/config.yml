@@ -20,11 +20,15 @@ jobs:
           name: Back-End Build
           command: |
             npm run backend:build
+      - run:
+          name: Back-End Test
+          command: |
+            cd server
+            npm run test
       - eb/setup
       - run:
           name: Back-End deploy AWS EB
           command: |
-            cd server
             ls
             eb create udacity-fullstack-backend-env || true
             eb use udacity-fullstack-backend-env
@@ -47,12 +51,16 @@ jobs:
       - run:
           name: Front-End Build
           command: |
-            npm run frontend:build      
+            npm run frontend:build
+      - run:
+          name: Front-End Test
+          command: |
+            cd client
+            npm run test
       - eb/setup
       - run:
           name: Front-End deploy AWS EB
           command: |
-            cd client
             ls
             eb create udacity-fullstack-frontend-env || true
             eb use udacity-fullstack-frontend-env
