@@ -3,6 +3,8 @@
     "frontend:install": "cd client && npm install",
     "backend:install": "cd server && npm install",
     "frontend:build": "cd client && npm run build",
-    "backend:build": "cd server && npm run build"
+    "backend:build": "cd server && npm run build",
+    "frontend:test": "cd client && npm run test",
+    "backend:test": "cd server && npm run test"
     }
 }

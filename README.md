@@ -35,10 +35,7 @@ The user cann update, delete or add new restaurants to the list.
 
 For Each Restaurant the user can see all the ratings for the specific restaurants.
 
-## CI/CD Circle-CI
-CircleCi workflow is triggered on new commits on this repo.
-The configuration is stored under `circleci\config.yml`
-
+## Udacity for Review
 Successful Backend Pipeline
 
 ![Circle-ci-backend](images/circleci-backend.png)
@@ -46,9 +43,3 @@ Successful Backend Pipeline
 Successful Frontend Pipeline
 
 ![Circle-ci-frontend](images/circleci-frontend.png)
-
-## Diagrams
-### Architecture
-![Architecture](images/diagrams/architecture.png)
-### CICD Flow
-![CICD](images/diagrams/deployment-pipeline.png)

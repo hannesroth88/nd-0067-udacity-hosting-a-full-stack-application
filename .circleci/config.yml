@@ -23,8 +23,7 @@ jobs:
       - run:
           name: Back-End Test
           command: |
-            cd server
-            npm run test
+            npm run backend:test
       - eb/setup
       - run:
           name: Back-End deploy AWS EB
@@ -33,7 +32,7 @@ jobs:
             ls
             eb create udacity-fullstack-backend-env || true
             eb use udacity-fullstack-backend-env
-            eb setenv NODE_ENV=PROD
+            eb setenv NODE_ENV=$NODE_ENV
             eb deploy
             eb status
   frontend:
@@ -56,8 +55,7 @@ jobs:
       - run:
           name: Front-End Test
           command: |
-            cd client
-            npm run test
+            npm run frontend:test
       - eb/setup
       - run:
           name: Front-End deploy AWS EB
@@ -73,8 +71,11 @@ workflows:
     jobs:
       - backend:
           context: udacity-fullstack-aws
+          filters:
+            branches:
+              only: main
       - frontend:
           context: udacity-fullstack-aws
-          # activate if runs smoothly
-          # requires:
-          #   - backend
+          filters:
+            branches:
+              only: main
