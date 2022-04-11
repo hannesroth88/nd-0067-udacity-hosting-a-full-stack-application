@@ -1,6 +1,12 @@
 
 # CI/CD Circle-CI
-CircleCi workflow is triggered on new commits on this repo (main branch).
+CircleCi workflow is triggered on new commits on this repo (main branch). After the commit, the frontend and backend share a similar workflow:
+1. Install App
+2. Build App
+3. Test App
+4. Deploy App to Elastic Beanstalk
+for detailed information see Process Flow below
+   
 The configuration is stored under `circleci\config.yml`
 
 ## Process-Flow

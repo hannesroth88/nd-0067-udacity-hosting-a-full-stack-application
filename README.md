@@ -8,6 +8,13 @@ Codebase of both Apps is from the tutorial [Deploy PERN Fullstack App on Heroku 
 Instead of Heraklion I used AWS Elastic Beanstalk in combination with CircleCI as the CI/CD Plattform.
 Also dummy tests were inserted as Proof of concept for the CICD Pipeline
 
+## Dependencies
+- NodeJs + npm
+- REACT Frontend
+- EXPRESS Backend
+- CI/CD Circle CI
+- DEPLOYMENT AWS Elastic Beanstalk
+
 ## Links
 Backend: 
 [Link](http://udacity-fullstack-backend-env.eba-up9w3ehf.us-east-1.elasticbeanstalk.com/api/v1/restaurants)

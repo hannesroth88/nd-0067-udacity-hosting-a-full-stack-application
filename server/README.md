@@ -20,7 +20,7 @@ NODE_ENV=xyz // App Environment PROD/DEV
 ```
 
 ### Database
-create a Postgres Database. 
+Create a Postgres Database, either locally (install postgres) or on a cloud. 
 Install db-migrate following the official documentation at [db-migrate](https://db-migrate.readthedocs.io/en/latest/Getting%20Started/installation/).
 Use `db-migrate up` to create the necessary tables and example rows.
 
