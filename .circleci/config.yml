@@ -32,7 +32,7 @@ jobs:
             ls
             eb create udacity-fullstack-backend-env || true
             eb use udacity-fullstack-backend-env
-            eb setenv NODE_ENV=$NODE_ENV
+            eb setenv NODE_ENV=$NODE_ENV RDS_USERNAME=$RDS_USERNAME RDS_PASSWORD=$RDS_PASSWORD RDS_HOSTNAME=$RDS_HOSTNAME RDS_PORT=$RDS_PORT RDS_DB_NAME=$RDS_DB_NAME
             eb deploy
             eb status
   frontend:

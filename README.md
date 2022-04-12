@@ -8,7 +8,13 @@ Codebase of both Apps is from the tutorial [Deploy PERN Fullstack App on Heroku 
 Instead of Heraklion I used AWS Elastic Beanstalk in combination with CircleCI as the CI/CD Plattform.
 Also dummy tests were inserted as Proof of concept for the CICD Pipeline
 
-## Dependencies
+# Getting Started
+
+## Installation
+1. Clone this repo locally into the location of your choice.
+2. Follow the README.md of /server and /client
+
+## Dependencies High level
 - NodeJs + npm
 - REACT Frontend
 - EXPRESS Backend
